@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Demu</div>
+            <div class="nav-items">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Demu</h1>
+            <p>discover not so great products at horrible prices
+            </p>
+            <p>ps: hold ctrl + alt while clicking the red square to get a credit card</p>
+        </section>
+
+        <section class="products" id="products">
+            <h2>Our Products</h2>
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+    </main>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-footer">
+                <div class="cart-total">Total: $<span id="cartTotal">0.00</span></div>
+                <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3>Checkout</h3>
+                <button class="close-checkout">&times;</button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-section">
+                    <h4>Shipping Information</h4>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" placeholder="Address" required>
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="Postal Code" required>
+                </div>
+                <div class="form-section">
+                    <h4>Payment Information</h4>
+                    <input type="text" id="cardNumber" placeholder="Card Number" required>
+                    <div class="card-details">
+                        <input type="text" id="expDate" placeholder="MM/YY" required>
+                        <input type="text" id="cvv" placeholder="CVV" required>
+                    </div>
+                </div>
+                <button type="submit" class="process-payment-btn">Process Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="admin-trigger"></div>
+    <div class="admin-panel">
+        <div class="admin-content">
+            <h3>Card Generator</h3>
+            <div class="generator-controls">
+                <button id="generateCard">Generate New Card</button>
+                <div class="card-info">
+                    <span>Card: <span id="genCardNumber">-</span></span>
+                    <span>Exp: <span id="genExpDate">-</span></span>
+                    <span>CVV: <span id="genCVV">-</span></span>
+                </div>
+                <div class="balance-control">
+                    <label>Balance: $</label>
+                    <input type="number" id="balanceInput" min="0" step="0.01" value="1000">
+                    <button id="setBalance">Set Balance</button>
+                </div>
+            </div>
+            <div class="card-list">
+                <h4>Active Cards</h4>
+                <div id="activeCards"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
